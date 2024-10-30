@@ -1,0 +1,14 @@
+{
+    "name": "davidcruz/kata-boilplate",
+    "require": {
+        "phpunit/phpunit": "^9.5",
+        "ramsey/uuid": "^4.1"
+    },
+    "description": "Kata Boilplate",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "App\\Tests\\": "tests/"
+        }
+    }
+}

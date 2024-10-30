@@ -1,0 +1,18 @@
+FROM php:8.2-fpm
+
+# Instalar dependencias y extensiones necesarias
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    zip \
+    unzip \
+    libpng-dev \
+    && docker-php-ext-install zip pdo_mysql gd
+
+# Instalar Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Instalar Xdebug
+RUN pecl install xdebug-3.0.1 && docker-php-ext-enable xdebug
+
+# Configurar Xdebug
+COPY xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
