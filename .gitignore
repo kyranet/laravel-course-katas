@@ -2,3 +2,6 @@
 .phpunit.result.cache
 xdebug.log
 .idea
+*.bak
+
+.phpunit.cache
